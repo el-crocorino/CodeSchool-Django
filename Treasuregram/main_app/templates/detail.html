@@ -1,17 +1,10 @@
+{% extends 'base.html' %}
 {% load staticfiles %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">        
-	<link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}" />
-        <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-theme.min.css' %}" />
-        <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-custom.css' %}" />
-        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
-	<title>Treasure - {{ treasure.name }}</title>
-</head>
-<body>
-	<main class="container container--mw700" role="main">
+{% block title %}{{ treasure.name }}{% endblock %}
+
+{% block content %}
+	<div class="treasure panel panel-default">
 		<div class="panel-heading">
 			<h3 class="panel-title">{{ treasure.name }}</h3>
 		</div>
@@ -32,6 +25,5 @@
 				</tr>
 			</table>
 		</div>
-	</main>
-</body>
-</html>
+	</div>	
+{% endblock %}		
