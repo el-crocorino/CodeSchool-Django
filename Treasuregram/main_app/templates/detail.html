@@ -1,0 +1,37 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">        
+	<link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-theme.min.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'bootstrap-custom.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+	<title>Treasure - {{ treasure.name }}</title>
+</head>
+<body>
+	<main class="container container--mw700" role="main">
+		<div class="panel-heading">
+			<h3 class="panel-title">{{ treasure.name }}</h3>
+		</div>
+		<div class="panel-body">
+			<div class="treasure-photo-detail"><img src="{{ treasure.img_url }}" alt="{{ treasure.name }}" height="200"></div>
+			<table class="treasure-table">
+				<tr>
+					<th><img src="{% static "images/material-icon.png" %}" alt="Material Icon">Material:</th>
+					<td>{{ treasure.material }}</td>
+				</tr>
+				<tr>
+					<th><img src="{% static "images/location-icon.png" %}" alt="Location Icon">Location:</th>
+					<td>{{ treasure.location }}</td>
+				</tr>
+				<tr>
+					<th><img src="{% static "images/value-icon.png" %}" alt="Value Icon">Value:</th>
+					<td>{{ treasure.value }}</td>
+				</tr>
+			</table>
+		</div>
+	</main>
+</body>
+</html>
