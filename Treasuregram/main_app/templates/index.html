@@ -14,7 +14,7 @@
                     </div>
                     <div class="panel-body">
                         <div class="treasure-photo">
-                            <img src="{{ treasure.img_url }}" alt="{{ treasure.name }} image" height="200"/>
+                            <img src="{{ treasure.img_url }}" alt="{{ treasure.name }} image" style="max-width:170px; max-height:200px;"/>
                         </div>
                     </div>
                 </div>    
@@ -25,4 +25,19 @@
         {% endif %}
         {% endfor %}                
     </div>         
+{% endblock %}
+
+{% block form %} 
+    <div class="treasure panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Add Treasure</h3>
+        </div>
+        <div class="panel-body">
+            <form action="post_url/" method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
 {% endblock %}
