@@ -14,7 +14,7 @@
                     </div>
                     <div class="panel-body">
                         <div class="treasure-photo">
-                            <img src="{{ treasure.img_url }}" alt="{{ treasure.name }} image" style="max-width:170px; max-height:200px;"/>
+                            <img src="{{ treasure.image.url }}" alt="{{ treasure.name }} image" style="max-width:170px; max-height:200px;"/>
                         </div>
                     </div>
                 </div>    
@@ -33,7 +33,7 @@
             <h3 class="panel-title">Add Treasure</h3>
         </div>
         <div class="panel-body">
-            <form action="post_url/" method="POST">
+            <form enctype="multipart/form-data" action="post_url/" method="POST">
                 {% csrf_token %}
                 {{ form.as_p }}
                 <input type="submit" value="Submit">
