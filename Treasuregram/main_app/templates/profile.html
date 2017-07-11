@@ -4,23 +4,26 @@
 {% block title %}Welcome !{% endblock %}
 
 {% block content %}
+	<h1>{{ username }}</h1>
+
     <div class="row">
         {% for treasure in treasures %}
+        <a href="/{{treasure.id}}/">
             <div class="col-md-4">
                 <div class="treasure panel panel-default">
-                    <div class="panel-heading">
-                        <h2 class="panel-title">{{ treasure.name }}</h2>
-                        <a href="/user/{{ treasure.user.username }}/">by: {{ treasure.user.username }}</a>
-                    </div>
-                    <div class="panel-body">
-                        <a href="/{{treasure.id}}/">
-                            <div class="treasure-photo">
-                                <img src="{{ treasure.image.url }}" alt="{{ treasure.name }} image" style="max-width:170px; max-height:200px;"/>
-                            </div>
-                        </a>
-                    </div>
+                	<a href="/{{ treasure.id }}/">
+	                    <div class="panel-heading">
+	                        <h2 class="panel-title">{{ treasure.name }}</h2>
+	                    </div>
+	                    <div class="panel-body">
+	                        <div class="treasure-photo">
+	                            <img src="{{ treasure.image.url }}" alt="{{ treasure.name }} image" style="max-width:170px; max-height:200px;"/>
+	                        </div>
+	                    </div>
+	                </a>
                 </div>    
             </div>
+        </a>
         {% if forloop.counter|divisibleby:3 %}
         </div><div class="row">
         {% endif %}
