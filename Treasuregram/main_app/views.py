@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
@@ -27,6 +27,17 @@ def post_treasure( request):
         treasure.user = request.user
         treasure.save()
     return HttpResponseRedirect( '/')
+
+def like_treasure( request):
+    treasure_id = request.GET.get('treasure_id', None)
+    likes = 0
+    if(treasure_id):
+        treasure = Treasure.objects.get(id = int(treasure_id))
+        if treasure is not None:
+            likes = treasure.likes + 1
+            treasure.likes = likes
+            treasure.save()
+    return HttpResponse(likes)
 
 def profile( request, username):
     user = User.objects.get(username = username)
