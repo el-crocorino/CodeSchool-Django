@@ -65,3 +65,7 @@ def register(request):
         form = UserCreationForm()
         return render( request, 'registration.html', {'form': form})
 
+def logout_view(request):
+    logout(request)
+    return HttpResponseRedirect('/')
+
